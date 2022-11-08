@@ -1,5 +1,5 @@
 import express,{Application} from 'express';
-import mongoose, { mongo } from 'mongoose';
+import mongoose from 'mongoose';
 import compression from 'compression';
 import cors from 'cors';
 import morgan from 'morgan';
@@ -7,6 +7,7 @@ import helmet from 'helmet';
 import Controller from '@/utils/interfaces/controller.interface';
 import ErrorMiddleware from './middlewares/error.middleware';
 
+import token from './utils/token';
 class App{
     public express : Application;
     public port : number;
@@ -18,6 +19,8 @@ class App{
         this.initializeControllers(contollers);
         this.initializeDatabaseConnection();
         this.initializeErrorHandling();
+
+        
     }
 
     private initializeMiddleware(){

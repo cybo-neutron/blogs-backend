@@ -7,9 +7,12 @@ const PostSchema =new Schema({
         required : true
     },
     tags : Array<String>(),
+    image:{
+        type:String,
+    },
     description : {
         type : String,
-        required : true,
+        // required : true,
     },
     date : {
         type : Date,

@@ -6,7 +6,8 @@ const create = Joi.object({
     description : Joi.string().required(),
     date : Joi.date().default(Date.now),
     isPublic:Joi.boolean().default(false),
-    user_id:Joi.string()
+    user_id:Joi.string(),
+    image:Joi.string().optional().allow('')
 });
 
 export default {create};
