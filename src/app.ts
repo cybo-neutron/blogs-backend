@@ -47,12 +47,12 @@ class App{
         mongoose.connect(`mongodb+srv://${MONGO_USER}:${MONGO_PASSWORD}${MONGO_PATH}`,(err)=>{
             if(err){
                 console.log("Error in connecting to DB");
+                console.log(err);
             }else{
                 console.log("Successfully connected to DB");
                 
             }
         });
-        console.log("Hey you need to uncomment the above line for DB connection");
 
         // mongoose.connect('mongodb://localhost:27017/blogsDB',(err)=>{
         //     if(err){
