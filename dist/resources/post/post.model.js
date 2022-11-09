@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const mongoose_1 = require("mongoose");
-const PostSchema = new mongoose_1.Schema({
+var mongoose_1 = require("mongoose");
+var PostSchema = new mongoose_1.Schema({
     title: {
         type: String,
         required: true
@@ -16,7 +16,7 @@ const PostSchema = new mongoose_1.Schema({
     },
     date: {
         type: Date,
-        default: () => Date.now(),
+        default: function () { return Date.now(); },
     },
     isPublic: {
         type: Boolean,

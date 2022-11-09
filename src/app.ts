@@ -20,7 +20,9 @@ class App{
         this.initializeDatabaseConnection();
         this.initializeErrorHandling();
 
-        
+        this.express.get("/",(req,res)=>{
+            res.send("This page is working");
+        })
     }
 
     private initializeMiddleware(){

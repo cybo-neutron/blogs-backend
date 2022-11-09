@@ -8,86 +8,167 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const post_model_1 = __importDefault(require("@/resources/post/post.model"));
-class PostService {
-    constructor() {
+var post_model_1 = __importDefault(require("@/resources/post/post.model"));
+var PostService = /** @class */ (function () {
+    function PostService() {
         this.post = post_model_1.default;
     }
-    create(blog) {
-        return __awaiter(this, void 0, void 0, function* () {
-            console.log("Create post.service");
-            try {
-                const post = yield this.post.create(blog);
-                return post;
-            }
-            catch (error) {
-                throw new Error("Unable to create post");
-            }
+    PostService.prototype.create = function (blog) {
+        return __awaiter(this, void 0, void 0, function () {
+            var post, error_1;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        console.log("Create post.service");
+                        _a.label = 1;
+                    case 1:
+                        _a.trys.push([1, 3, , 4]);
+                        return [4 /*yield*/, this.post.create(blog)];
+                    case 2:
+                        post = _a.sent();
+                        return [2 /*return*/, post];
+                    case 3:
+                        error_1 = _a.sent();
+                        throw new Error("Unable to create post");
+                    case 4: return [2 /*return*/];
+                }
+            });
         });
-    }
-    fetchAllPostOfUser(user_id) {
-        return __awaiter(this, void 0, void 0, function* () {
-            try {
-                const posts = yield this.post.find({ user_id });
-                return posts;
-            }
-            catch (error) {
-                throw new Error("Unable to fetch posts");
-            }
+    };
+    PostService.prototype.fetchAllPostOfUser = function (user_id) {
+        return __awaiter(this, void 0, void 0, function () {
+            var posts, error_2;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        return [4 /*yield*/, this.post.find({ user_id: user_id })];
+                    case 1:
+                        posts = _a.sent();
+                        return [2 /*return*/, posts];
+                    case 2:
+                        error_2 = _a.sent();
+                        throw new Error("Unable to fetch posts");
+                    case 3: return [2 /*return*/];
+                }
+            });
         });
-    }
-    fetchAllPublicPosts() {
-        return __awaiter(this, void 0, void 0, function* () {
-            console.log("Showing public posts");
-            try {
-                const posts = yield this.post.find({ isPublic: true });
-                return posts;
-            }
-            catch (error) {
-                throw new Error("Unable to fetch posts");
-            }
+    };
+    PostService.prototype.fetchAllPublicPosts = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var posts, error_3;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        console.log("Showing public posts");
+                        _a.label = 1;
+                    case 1:
+                        _a.trys.push([1, 3, , 4]);
+                        return [4 /*yield*/, this.post.find({ isPublic: true })];
+                    case 2:
+                        posts = _a.sent();
+                        return [2 /*return*/, posts];
+                    case 3:
+                        error_3 = _a.sent();
+                        throw new Error("Unable to fetch posts");
+                    case 4: return [2 /*return*/];
+                }
+            });
         });
-    }
-    fetchPost(id) {
-        return __awaiter(this, void 0, void 0, function* () {
-            try {
-                const post = yield this.post.findById(id);
-                return post;
-            }
-            catch (error) {
-                throw new Error("Unable to fetch the post (Check the id)");
-            }
+    };
+    PostService.prototype.fetchPost = function (id) {
+        return __awaiter(this, void 0, void 0, function () {
+            var post, error_4;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        return [4 /*yield*/, this.post.findById(id)];
+                    case 1:
+                        post = _a.sent();
+                        return [2 /*return*/, post];
+                    case 2:
+                        error_4 = _a.sent();
+                        throw new Error("Unable to fetch the post (Check the id)");
+                    case 3: return [2 /*return*/];
+                }
+            });
         });
-    }
-    updatePost(id, newData) {
-        return __awaiter(this, void 0, void 0, function* () {
-            console.log("update post | post.service");
-            console.log(newData);
-            try {
-                // console.log("Data to be updated",{newData});
-                const updatedPost = yield this.post.findOneAndUpdate({ _id: id }, newData, { new: true });
-                // console.log({updatedPost});
-                return updatedPost;
-            }
-            catch (err) {
-                throw new Error("Unable to update post");
-            }
+    };
+    PostService.prototype.updatePost = function (id, newData) {
+        return __awaiter(this, void 0, void 0, function () {
+            var updatedPost, err_1;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        console.log("update post | post.service");
+                        console.log(newData);
+                        _a.label = 1;
+                    case 1:
+                        _a.trys.push([1, 3, , 4]);
+                        return [4 /*yield*/, this.post.findOneAndUpdate({ _id: id }, newData, { new: true })];
+                    case 2:
+                        updatedPost = _a.sent();
+                        // console.log({updatedPost});
+                        return [2 /*return*/, updatedPost];
+                    case 3:
+                        err_1 = _a.sent();
+                        throw new Error("Unable to update post");
+                    case 4: return [2 /*return*/];
+                }
+            });
         });
-    }
-    deletePost(id) {
-        return __awaiter(this, void 0, void 0, function* () {
-            try {
-                const deletedPost = yield this.post.findByIdAndDelete(id);
-                return deletedPost;
-            }
-            catch (err) {
-                throw new Error("Unable to delete post");
-            }
+    };
+    PostService.prototype.deletePost = function (id) {
+        return __awaiter(this, void 0, void 0, function () {
+            var deletedPost, err_2;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        return [4 /*yield*/, this.post.findByIdAndDelete(id)];
+                    case 1:
+                        deletedPost = _a.sent();
+                        return [2 /*return*/, deletedPost];
+                    case 2:
+                        err_2 = _a.sent();
+                        throw new Error("Unable to delete post");
+                    case 3: return [2 /*return*/];
+                }
+            });
         });
-    }
-}
+    };
+    return PostService;
+}());
 exports.default = PostService;
