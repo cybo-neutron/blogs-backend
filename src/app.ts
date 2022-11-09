@@ -42,16 +42,23 @@ class App{
         const {MONGO_USER,MONGO_PASSWORD,MONGO_PATH} = process.env;
 
         //Change this according to your database
-        // mongoose.connect(`mongodb:/${MONGO_USER}:${MONGO_PASSWORD}${MONGO_PATH}`);
-        console.log("Hey you need to uncomment the above line for DB connection");
-
-        mongoose.connect('mongodb://localhost:27017/blogsDB',(err)=>{
+        mongoose.connect(`mongodb+srv://${MONGO_USER}:${MONGO_PASSWORD}${MONGO_PATH}`,(err)=>{
             if(err){
                 console.log("Error in connecting to DB");
             }else{
                 console.log("Successfully connected to DB");
+                
             }
-        })
+        });
+        console.log("Hey you need to uncomment the above line for DB connection");
+
+        // mongoose.connect('mongodb://localhost:27017/blogsDB',(err)=>{
+        //     if(err){
+        //         console.log("Error in connecting to DB");
+        //     }else{
+        //         console.log("Successfully connected to DB");
+        //     }
+        // })
     }
 
     private initializeErrorHandling(){
